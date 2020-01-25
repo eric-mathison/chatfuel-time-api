@@ -27,7 +27,7 @@ app.use('/manychat', manychat);
 
 app.get('/', (req, res) => {
     res.send({
-        message: 'Server Running',
+        message: 'Current Time API',
     });
 });
 
