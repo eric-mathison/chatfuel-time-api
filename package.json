@@ -1,0 +1,46 @@
+{
+    "name": "current-time",
+    "version": "1.0.0",
+    "description": "Returns the current time in a specific timezone",
+    "main": "index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "build:babel": "babel src -d dist",
+        "build:lint": "eslint src",
+        "build:watch": "nodemon dist/index.js -w src --exec \"npm run build:lint && npm run build:babel && npm start\"",
+        "prepublish": "npm run build:lint && npm run build:babel"
+    },
+    "private": true,
+    "author": "Eric Mathison <eric.l.mathison@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "^7.8.3",
+        "@babel/core": "^7.8.3",
+        "@babel/preset-env": "^7.8.3",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "husky": "^4.2.1",
+        "lint-staged": "^10.0.2",
+        "prettier": "^1.19.1"
+    },
+    "dependencies": {
+        "chatfuel-api": "^1.3.0",
+        "express": "^4.17.1",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.27",
+        "morgan": "^1.9.1",
+        "winston": "^3.2.1"
+    },
+    "husky": {
+        "pre-commit": "npm run build:lint && lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,json,css,md}": [
+            "prettier --write",
+            "git add"
+        ]
+    }
+}
