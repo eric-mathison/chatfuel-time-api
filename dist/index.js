@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 var _express = _interopRequireDefault(require("express"));
 
 var _morgan = _interopRequireDefault(require("morgan"));
@@ -30,7 +35,7 @@ app.use('/chatfuel', _chatfuel["default"]);
 app.use('/manychat', _manychat["default"]);
 app.get('/', function (req, res) {
   res.send({
-    message: 'Server Running'
+    message: 'Current Time API'
   });
 }); // eslint-disable-next-line no-unused-vars
 
@@ -48,3 +53,6 @@ app.use(function (req, res, next) {
 app.listen(port, function () {
   _logger["default"].info("Listening on Port ".concat(port));
 });
+var _default = app; // for testing
+
+exports["default"] = _default;

@@ -1,6 +1,6 @@
 {
     "extends": ["airbnb-base", "prettier"],
-    "plugins": ["prettier"],
+    "plugins": ["prettier", "mocha"],
     "rules": {
         "indent": ["error", 4],
         "comma-dangle": ["error", "only-multiline"],
@@ -8,6 +8,11 @@
     },
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
+    },
+    "globals": {
+        "chai": true,
+        "expect": true
     }
 }

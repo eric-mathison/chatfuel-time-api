@@ -46,3 +46,5 @@ app.use((req, res, next) => {
 app.listen(port, () => {
     logger.info(`Listening on Port ${port}`);
 });
+
+export default app; // for testing
