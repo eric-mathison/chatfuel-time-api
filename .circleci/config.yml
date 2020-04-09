@@ -1,33 +1,33 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@2.0.1
 jobs:
   build:
-    executor:
-      name: node/default
+    docker:
+      - image: "cimg/base:stable"
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - node/install:
+          node-version: latest
+      - run: npm install
+      - run: npm test
   deploy:
-    executor:
-      name: node/default
+    docker:
+      - image: "cimg/base:stable"
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm run prepublish
-            - run:
-              name: Tar Deploy
-              command: |
-                tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./package.json ./dist/*
-            - run: sudo npm install -g caprover
-            - run:
-              name: Caprover Deploy
-              command: |
-                caprover deploy -h $CAPROVER_SERVER -t ./deploy.tar -p $CAPROVER_PASSWORD -a toc
+      - node/install:
+          node-version: latest
+      - run: npm run prepublish
+      - run:
+          name: Tar Deploy
+          command: |
+            tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./package.json ./dist/*
+      - run: sudo npm install -g caprover
+      - run:
+          name: Caprover Deploy
+          command: |
+            caprover deploy -h $CAPROVER_SERVER -t ./deploy.tar -p $CAPROVER_PASSWORD -a toc
 workflows:
   build-deploy:
     jobs:
