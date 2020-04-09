@@ -18,6 +18,7 @@ jobs:
       - checkout
       - node/install:
           node-version: latest
+      - run: npm install
       - run: npm run prepublish
       - run:
           name: Tar Deploy
