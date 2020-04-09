@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@2.0.1
 jobs:
-  build:
+  build-and-deploy:
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -11,14 +11,6 @@ jobs:
           node-version: latest
       - run: npm install
       - run: npm test
-  deploy:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - checkout
-      - node/install:
-          node-version: latest
-      - run: npm install
       - run: npm run prepublish
       - run:
           name: Tar Deploy
@@ -32,7 +24,4 @@ jobs:
 workflows:
   build-deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - build-and-deploy
