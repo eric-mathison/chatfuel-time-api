@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Caprover Deploy
           command: |
-            sudo caprover deploy -h $CAPROVER_SERVER -t ./deploy.tar -p $CAPROVER_PASSWORD -a toc
+            sudo caprover deploy -h $CAPROVER_SERVER -t ./deploy.tar -p $CAPROVER_PASSWORD -a $CAPROVER_APP_NAME
 workflows:
   build-deploy:
     jobs:
