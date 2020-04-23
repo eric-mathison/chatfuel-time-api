@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: latest
+          node-version: "13.2.0"
       - run: npm install
       - run: npm test
       - run: npm run prepublish
@@ -24,4 +24,5 @@ jobs:
 workflows:
   build-deploy:
     jobs:
-      - build-and-deploy
+      - build-and-deploy:
+          context: "Caprover Authentication"
