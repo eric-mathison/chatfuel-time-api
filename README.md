@@ -1,4 +1,4 @@
-# Current Time API for Chatfuel and Manychat
+# Time API for Chatfuel and Manychat
 
 A Simple API to get the current time given a timezone and return parsed time formats to the chatbot.
 
