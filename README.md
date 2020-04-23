@@ -1,6 +1,6 @@
 # Time API for Chatfuel and Manychat
 
-A Simple API to get the current time given a timezone and return parsed time formats to the chatbot.
+A tool for chatbots that returns the current time as variables for a given timezone.
 
 ## Usage
 
@@ -9,7 +9,7 @@ Make a `GET` request with one of the following URL formats.
 If using Chatfuel:
 
 ```
-https://em-current-time.herokuapp.com/chatfuel/?ctTimezone=America/Chicago
+https://time.tinkr.dev/chatfuel/?ctTimezone=America/Chicago
 ```
 
 If using Manychat:
