@@ -41,9 +41,7 @@ export default router.get('/', (req, res) => {
             })
             .render();
 
-        res.send({
-            message,
-        });
+        res.send(message);
     } else {
         res.status(500).send({
             error: 'Not a valid timezone',
