@@ -27,6 +27,7 @@ export default router.get('/', (req, res) => {
         const ctYear = now.format('YYYY');
         const ctHour = now.format('H');
         const ctMinute = now.format('mm');
+        const ctSecond = now.format('ss');
         const ctWeekDay = now.format('d');
 
         const message = new Chatfuel()
@@ -37,6 +38,7 @@ export default router.get('/', (req, res) => {
                 ctYear,
                 ctHour,
                 ctMinute,
+                ctSecond,
                 ctWeekDay,
             })
             .render();
