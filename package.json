@@ -1,7 +1,7 @@
 {
-    "name": "time",
+    "name": "chatfuel-time-api",
     "version": "1.1.4",
-    "description": "A tool for chatbots that returns the current time as variables for a given timezone",
+    "description": "An api for chatfuel bots that returns the current time as variables for a given timezone",
     "main": "index.js",
     "scripts": {
         "start": "node dist/index.js",
