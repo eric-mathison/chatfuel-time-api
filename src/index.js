@@ -2,7 +2,6 @@ import express from 'express';
 import morgan from 'morgan';
 import logger from './config/logger';
 import chatfuel from './routes/chatfuel';
-import manychat from './routes/manychat';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,8 +21,6 @@ app.use(
 );
 
 app.use('/chatfuel', chatfuel);
-
-app.use('/manychat', manychat);
 
 app.get('/', (req, res) => {
     res.send({
