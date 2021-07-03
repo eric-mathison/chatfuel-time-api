@@ -1,21 +1,41 @@
-# Time API for Chatfuel and Manychat
+# Chatfuel Time API
 
-A tool for chatbots that returns the current time as variables for a given timezone.
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/eric-mathison/chatfuel-time-api/Node.js%20CI?style=for-the-badge)
 
-## Usage
+An api for chatfuel bots that returns the current time as variables for a given timezone
 
-Make a `GET` request with one of the following URL formats.
+## Setting up the API Server
 
-If using Chatfuel:
-
-```
-https://time.tinkr.dev/chatfuel/?ctTimezone=America/Chicago
-```
-
-If using Manychat:
+Use the Github CLI to clone this repository.
 
 ```
-Under Development
+gh repo clone eric-mathison/chatfuel-time-api
+```
+
+Install dependencies
+
+```
+npm install
+```
+
+Next, you'll need to build it
+
+```
+npm run prepublish
+```
+
+Finally, start the server
+
+```
+npm start
+```
+
+## Using the API
+
+Make a `GET` request.
+
+```
+/chatfuel/?ctTimezone=America/Chicago
 ```
 
 The {timezone} needs to be in IANA Timezone Name format which can be found here:
@@ -36,7 +56,3 @@ In Chatfuel, attributes will automatically be added to your bot.
 -   ctWeekDay - returns week day number (0 - 6)
 
 _For ctWeekDay, 0 is for Sunday and 6 is for Saturday._
-
-### Manychat
-
-Under Development
